@@ -94,6 +94,7 @@ class TreeTraversalsImpl {
 		}
 	}
 	
+	/* For any Subtree, we calculate the max of left subtree and right subtree and check if that is greater than the previously found max. */	
 	public int findMax(Node head) {
 		if( head == null ) return Integer.MIN_VALUE;
 		
@@ -101,24 +102,19 @@ class TreeTraversalsImpl {
 		int lres = findMax(head.left);
 		int rres = findMax(head.right);
 		
-		if( lres > max) max = lres;
-		if( rres > max) max = rres;
-		
-		return max;
+		return Math.max(max, Math.max(lres, rres));
 		
 	}
 	
+	/* For any Subtree, we calculate the min of left subtree and right subtree and check if that is lesser than the previously found min. */	
 	public int findMin(Node head) {
-		if( head == null ) return Integer.MIN_VALUE;
+		if( head == null ) return Integer.MAX_VALUE;
 		
 		int min = head.data;
-		int lres = findMax(head.left);
-		int rres = findMax(head.right);
+		int lres = findMin(head.left);
+		int rres = findMin(head.right);
 		
-		if( lres < min) min = lres;
-		if( rres < min) min = rres;
-		
-		return min;
+		return Math.min(min, Math.min(lres, rres));
 	}
 	
 	public void leftView(Node head) {
