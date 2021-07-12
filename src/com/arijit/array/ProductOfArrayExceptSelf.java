@@ -30,6 +30,7 @@ public class ProductOfArrayExceptSelf {
 		ProductOfArrayExceptSelfImpl obj = new ProductOfArrayExceptSelfImpl();
 		System.out.println(Arrays.toString(obj.solution1(new int[]{1,2,3,4})));
 		System.out.println(Arrays.toString(obj.solution1(new int[]{-1,1,0,-3,3})));
+		System.out.println(Arrays.toString(obj.solution1(new int[]{4,5,1,8,2})));
 		System.out.println();
 		System.out.println(Arrays.toString(obj.solution2(new int[]{1,2,3,4})));
 		System.out.println(Arrays.toString(obj.solution2(new int[]{-1,1,0,-3,3})));

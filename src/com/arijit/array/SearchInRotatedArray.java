@@ -28,21 +28,21 @@ class SearchInRotatedArrayImpl {
 		
 		if( nums[mid] == target ) return mid; 
 		
-		if( nums[mid] > nums[right] ) {
-			if( nums[mid] >= target && nums[left] <= target ) {
-				return search(nums, left, mid - 1, target);
+		if( nums[mid] < nums[right] ) {
+			if( target >= nums[mid] && target <= nums[right] ) {
+				return search(nums, mid + 1, right, target);
 			}
 			else {
-				return search(nums, mid + 1, right, target);
+				return search(nums, left, mid - 1, target);
 			}
 		}
 		else {
-			if( nums[mid] <= target && nums[mid] >= target ) {
-				return search(nums, mid + 1, right, target);
-			}
-			else {
+			if( target <= nums[mid] && target >= nums[left]) {
 				return search(nums, left, mid - 1, target);
 			}
-		}
+			else {
+				return search(nums, mid + 1, right, target);
+			}
+		}		
 	}
 }
