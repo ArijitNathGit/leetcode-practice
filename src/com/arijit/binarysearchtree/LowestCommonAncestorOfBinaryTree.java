@@ -1,4 +1,4 @@
-package com.arijit.tree;
+package com.arijit.binarysearchtree;
 
 import java.util.HashMap;
 import java.util.HashSet;
