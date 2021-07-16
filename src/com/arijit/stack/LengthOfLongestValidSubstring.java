@@ -6,6 +6,7 @@ public class LengthOfLongestValidSubstring {
 
 	public static void main(String[] args) {
 		System.out.println(new LengthOfLongestValidSubstringImpl().find("()(())))"));
+		System.out.println(new LengthOfLongestValidSubstringImpl().find("))))))))"));
 	}
 
 }

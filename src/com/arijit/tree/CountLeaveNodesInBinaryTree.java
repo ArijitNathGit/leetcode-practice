@@ -1,5 +1,7 @@
 package com.arijit.tree;
 
+import java.util.Stack;
+
 public class CountLeaveNodesInBinaryTree {
 
 	public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class CountLeaveNodesInBinaryTree {
 		root.right.right = new Node(5);	
 		
 		System.out.println(new CountLeaveNodesInBinaryTreeImpl().countLeafNodes(root));
+		System.out.println(new CountLeaveNodesInBinaryTreeImpl().countLeafNodesStack(root));
 	}
 
 }
@@ -21,5 +24,25 @@ class CountLeaveNodesInBinaryTreeImpl {
 		
 		if(root.left == null && root.right == null) return 1;
 		return countLeafNodes(root.left) + countLeafNodes(root.right);
+	}
+	
+	public int countLeafNodesStack(Node root) {
+		if(root == null) return 0;
+		
+		int count = 0;
+		Stack<Node> stack = new Stack<>();
+		stack.push(root);
+		
+		while(!stack.isEmpty()) {
+			if( stack.peek().left == null && stack.peek().right == null) {
+				count ++;
+			}
+			
+			Node current = stack.pop();
+			if( current.left != null ) stack.push(current.left);
+			if( current.right != null ) stack.push(current.right);
+		}
+		
+		return count;
 	}
 }

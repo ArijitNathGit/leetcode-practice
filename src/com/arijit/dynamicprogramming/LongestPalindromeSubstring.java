@@ -1,5 +1,6 @@
 package com.arijit.dynamicprogramming;
 
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,8 +9,14 @@ import java.util.Map;
 public class LongestPalindromeSubstring {
 
 	public static void main(String[] args) {
+		Instant before = Instant.now();
+		System.out.println(new LongestPalindromeSubstringImpl().find("abba"));
 		System.out.println(new LongestPalindromeSubstringImpl().find("babaddtattarrattatddetartrateedredividerb"));
+		
+		System.out.println("Time: " + (Instant.now().toEpochMilli() - before.toEpochMilli()));
+		before = Instant.now();
 		System.out.println(new LongestPalindromeSubstringImpl().find("civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth"));
+		System.out.println("Time: " + (Instant.now().toEpochMilli() - before.toEpochMilli()));
 	}
 
 }

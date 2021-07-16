@@ -11,7 +11,7 @@ public class MergeTwoSortedLinkedList {
 		list2.next = new Node(6);
 		list2.next.next = new Node(8);
 		
-		Node merged = new MergeTwoSortedLinkedListImpl().merge(list1, list2);
+		Node merged = new MergeTwoSortedLinkedListImpl().mergeEfficient(list1, list2);
 		new MergeTwoSortedLinkedListImpl().traverse(merged);		
 	}
 
@@ -37,6 +37,28 @@ class MergeTwoSortedLinkedListImpl {
 		}
 				
 		return temp1.next;
+	}
+	
+	public Node mergeEfficient(Node list1, Node list2) {
+		Node temp = new Node(0), result = temp;
+		
+		while( list1 != null && list2 != null ) {
+			if( list1.data <= list2.data ) {
+				temp.next = list1;
+				
+				list1 = list1.next;
+			}
+			else {
+				temp.next = list2;
+				list2 = list2.next;
+			}
+			
+			temp = temp.next;
+		}
+		
+		temp.next = ( list1 == null ) ? list2 : list1;
+		
+		return result.next;
 	}
 	
 	public void traverse(Node list) {
